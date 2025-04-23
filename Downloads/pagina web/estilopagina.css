@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('carretera.jpg') center/cover no-repeat, 
+                linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+    background-blend-mode: overlay;
+    background-size: cover;
+    animation: gradientBG 10s ease infinite;
+}
+
+/* Animación del fondo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Caja de Login */
+.login-box {
+    background: rgba(0, 0, 0, 0.75); /* Fondo más elegante */
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: white;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Efecto de aparición */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.login-box h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Campos de entrada */
+input {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Efecto cuando se selecciona */
+input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #FFD700;
+    transform: scale(1.05);
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #32CD32, #228B22);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(50, 205, 50, 0.4);
+}
+
+/* Efecto hover */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(50, 205, 50, 0.6);
+}
+
+/* Links */
+.links a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #FFD700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Efecto hover en enlaces */
+.links a:hover {
+    color: #FFA500;
+    transform: scale(1.1);
+}
+

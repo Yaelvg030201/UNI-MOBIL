@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - UNI-MOBIL</title>
+    <link rel="stylesheet" href="estilopagina.css">
+    <style>
+        .additional-styles {
+            /* Estilos específicos para recuperación */
+            .password-instructions {
+                color: #666;
+                font-size: 0.9em;
+                margin: 15px 0;
+            }
+            
+            .success-message {
+                background-color: #dff0d8;
+                border-color: #d6e9c6;
+                color: #3c763d;
+                padding: 15px;
+                border-radius: 4px;
+                margin: 20px 0;
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box" style="max-width: 500px;">
+            <h1>Recuperar Contraseña 🔑</h1>
+            
+            <!-- Formulario de recuperación -->
+            <form id="recoveryForm" method="POST">
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" 
+                           placeholder="ejemplo@uni.edu" 
+                           required
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+
+                <div class="password-instructions">
+                    <p>Te enviaremos un enlace seguro a tu correo para restablecer tu contraseña.</p>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Enviar Instrucciones
+                    <span class="loader" style="display: none;"></span>
+                </button>
+            </form>
+
+            <!-- Mensaje de éxito (oculto inicialmente) -->
+            <div class="success-message" id="successMessage">
+                ✔️ Hemos enviado un correo a <span id="emailSpan"></span> con las instrucciones.
+            </div>
+
+            <!-- Enlace de volver -->
+            <div class="links" style="margin-top: 20px;">
+                <a href="login.html">« Volver al Inicio de Sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('recoveryForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const btn = form.querySelector('.btn-submit');
+            const loader = btn.querySelector('.loader');
+            const email = document.getElementById('email').value;
+
+            // Validación básica
+            if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                alert('Por favor ingresa un correo válido');
+                return;
+            }
+
+            // Mostrar loader
+            btn.disabled = true;
+            loader.style.display = 'inline-block';
+            btn.innerHTML = 'Enviando... ';
+
+            try {
+                // Simular envío (reemplazar con fetch real)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Mostrar mensaje de éxito
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('emailSpan').textContent = email;
+                form.reset();
+                
+            } catch (error) {
+                alert('Error al enviar la solicitud. Intenta nuevamente.');
+            } finally {
+                btn.disabled = false;
+                loader.style.display = 'none';
+                btn.innerHTML = 'Enviar Instrucciones';
+            }
+        });
+    </script>
+</body>
+</html>
