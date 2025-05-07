@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('carro.jpg') center center / cover no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor con fondo semitransparente */
+.menu-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 60px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    animation: entrada 1s ease-out;
+}
+
+/* Animación de entrada */
+@keyframes entrada {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Título grande */
+.logo {
+    font-size: 42px;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px #000;
+}
+
+/* Lista vertical de enlaces */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Botones grandes y elegantes */
+.nav-links li a {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    background: linear-gradient(45deg, #0052D4, #4364F7, #6FB1FC);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto hover */
+.nav-links li a:hover {
+    background: linear-gradient(45deg, #FFD700, #FF8C00);
+    color: black;
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(255, 215, 0, 0.7);
+}
