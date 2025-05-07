@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservar Viaje | UNI-MOBIL</title>
+    <link rel="stylesheet" href="estilopagina.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1 style="color: #FFD700;">Reservar Viaje</h1>
+        <form action="procesar_reserva.php" method="post">
+            <input type="text" name="origen" placeholder="Lugar de origen" required><br><br>
+            <input type="text" name="destino" placeholder="Destino" required><br><br>
+            <input type="date" name="fecha" required><br><br>
+            <input type="submit" value="Reservar" style="padding: 10px 20px; border-radius: 20px; background: #6FB1FC; color: white; border: none;">
+        </form>
+    </div>
+</body>
+</html>
